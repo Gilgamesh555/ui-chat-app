@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from "react";
 import "./RequestUserCard.css";
 import { MessageStatus } from "../utils/messageStatusParser";
-import { getContactById, updateContactStatus } from "../endpoints/userapi";
+import {
+  createContacts,
+  getContactById,
+  updateContactStatus,
+} from "../endpoints/userapi";
 
 interface RequestUserCardProps {
   name: string;
-  contactId: number;
+  userSenderId: number;
+  userReceiverId: number;
 }
 
 const RequestUserCard: React.FC<RequestUserCardProps> = ({
   name,
-  contactId,
+  userSenderId,
+  userReceiverId,
 }) => {
   const [requestContent, setRequestContent] = useState<JSX.Element | null>(
     <>
-      <button onClick={() => handleAcceptRequest(contactId)}>Accept</button>
-      <button onClick={() => handleRejectRequest(contactId)}>Reject</button>
+      <button onClick={() => handleAcceptRequest(userSenderId, userReceiverId)}>
+        Accept
+      </button>
+      <button onClick={() => handleRejectRequest(userSenderId, userReceiverId)}>
+        Reject
+      </button>
     </>
   );
 
   useEffect(() => {
     // Get contact status from the server
-    getContactById(contactId).then((response) => {
+    getContactById(userSenderId, userReceiverId).then((response) => {
       if (response === false) {
         return;
       }
@@ -34,23 +44,43 @@ const RequestUserCard: React.FC<RequestUserCardProps> = ({
         setRequestContent(<span>Request Blocked</span>);
       }
     });
-  }, [contactId]);
+  }, [userSenderId, userReceiverId]);
 
-  const handleAcceptRequest = (contactId: number) => {
+  const handleAcceptRequest = (
+    userSenderId: number,
+    userReceiverId: number
+  ) => {
     // Accept request logic here
-    updateContactStatus(contactId, MessageStatus.Accepted).then((response) => {
+    updateContactStatus(
+      userSenderId,
+      userReceiverId,
+      MessageStatus.Accepted
+    ).then((response) => {
       if (response === false) {
         return;
       }
+
+      createContacts(userSenderId, userReceiverId).then((response) => {
+        if (response === false) {
+          return;
+        }
+      });
 
       // Update UI
       setRequestContent(<span>Request Accepted</span>);
     });
   };
 
-  const handleRejectRequest = (contactId: number) => {
+  const handleRejectRequest = (
+    userSenderId: number,
+    userReceiverId: number
+  ) => {
     // Reject request logic here
-    updateContactStatus(contactId, MessageStatus.Rejected).then((response) => {
+    updateContactStatus(
+      userSenderId,
+      userReceiverId,
+      MessageStatus.Rejected
+    ).then((response) => {
       if (response === false) {
         return;
       }

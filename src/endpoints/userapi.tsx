@@ -3,6 +3,8 @@ import { MessageStatus } from "../utils/messageStatusParser";
 const apiUrl = "http://localhost:5224";
 export default apiUrl;
 
+// Promise<boolean | Record<string, unknown>>
+
 export const login = async (userCredentials: string, password: string) => {
   const response = await fetch(`${apiUrl}/api/Auth/login`, {
     method: "POST",
@@ -10,6 +12,22 @@ export const login = async (userCredentials: string, password: string) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ userCredentials, password }),
+  });
+
+  if (!response.ok) {
+    return false;
+  }
+
+  return response.json();
+};
+
+export const validateToken = async (token: string) => {
+  const response = await fetch(`${apiUrl}/api/Auth/validate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (!response.ok) {
@@ -35,7 +53,7 @@ export const searchByUsernameOrEmail = async (
 };
 
 export const sendChatRequest = async (senderId: number, receiverId: number) => {
-  const response = await fetch(`${apiUrl}/api/Contact`, {
+  const response = await fetch(`${apiUrl}/api/ContactRequest/create/contact`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -65,16 +83,20 @@ export const getChatRequests = async (userId: number) => {
 };
 
 export const updateContactStatus = async (
-  contactId: number,
+  userSenderId: number,
+  userReceiverId: number,
   status: number
 ) => {
-  const response = await fetch(`${apiUrl}/api/Contact/${contactId}/status`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(status),
-  });
+  const response = await fetch(
+    `${apiUrl}/api/ContactRequest/${userSenderId}/${userReceiverId}/status`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(status),
+    }
+  );
 
   if (!response.ok) {
     return false;
@@ -83,8 +105,13 @@ export const updateContactStatus = async (
   return response.json();
 };
 
-export const getContactById = async (contactId: number) => {
-  const response = await fetch(`${apiUrl}/api/Contact/${contactId}`);
+export const getContactById = async (
+  userSenderId: number,
+  userReceiverId: number
+) => {
+  const response = await fetch(
+    `${apiUrl}/api/ContactRequest/${userSenderId}/${userReceiverId}`
+  );
 
   if (!response.ok) {
     return false;
@@ -97,6 +124,28 @@ export const getAllWithAcceptedStatus = async (userId: number) => {
   const response = await fetch(
     `${apiUrl}/api/user/${userId}/accepted-contacts`
   );
+
+  if (!response.ok) {
+    return false;
+  }
+
+  return response.json();
+};
+
+export const createContacts = async (
+  userSenderId: number,
+  userReceiverId: number
+) => {
+  const response = await fetch(`${apiUrl}/api/Contact`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userSenderId,
+      userReceiverId,
+    }),
+  });
 
   if (!response.ok) {
     return false;

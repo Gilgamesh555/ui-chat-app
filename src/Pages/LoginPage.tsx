@@ -8,6 +8,7 @@ interface UserData {
   username: string;
   email: string;
   id: number;
+  token: string;
 }
 
 const LoginPage: React.FC = () => {
@@ -35,6 +36,9 @@ const LoginPage: React.FC = () => {
         return;
       }
 
+      // set session storage
+      sessionStorage.setItem("userData", JSON.stringify(response));
+
       setPageContent(
         <UserDataContext.Provider value={response as UserData}>
           <HomePage />
@@ -42,6 +46,18 @@ const LoginPage: React.FC = () => {
       );
     });
   };
+
+  if (sessionStorage.getItem("userData")) {
+    return (
+      <UserDataContext.Provider
+        value={
+          JSON.parse(sessionStorage.getItem("userData") as string) as UserData
+        }
+      >
+        <HomePage />
+      </UserDataContext.Provider>
+    );
+  }
 
   if (pageContent) {
     return pageContent;

@@ -30,8 +30,6 @@ const ChatPage: React.FC<ChatPageProps> = ({ isOpen, chat }) => {
     const ws = new WebSocket(`ws://localhost:8080?id=${chat.userSenderId}`);
 
     setWebsocket(ws);
-
-    console.log("rendered");
   }, [chat.userSenderId]);
 
   if (!websocket) {

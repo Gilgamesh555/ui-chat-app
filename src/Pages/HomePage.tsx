@@ -142,7 +142,8 @@ const HomePage: React.FC = () => {
             <RequestUserCard
               key={request.id}
               name={request.firstName + " " + request.lastName}
-              contactId={request.contactId}
+              userSenderId={request.userSenderId}
+              userReceiverId={request.userReceiverId}
             />
           );
         })
