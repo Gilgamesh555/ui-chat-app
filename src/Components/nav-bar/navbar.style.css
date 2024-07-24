@@ -1,0 +1,57 @@
+.banner-content {
+  top: 0;
+  right: 0;
+  z-index: 1;
+  right: 0;
+}
+
+.title-container {
+  top: 0;
+  position: fixed;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  left: 0;
+  height: 50px;
+  z-index: 3;
+  margin-left: 16px;
+  margin-top: 10px;
+}
+
+.banner-actions {
+  top: 0;
+  position: fixed;
+  right: 0;
+  padding-right: 16px;
+  z-index: 3;
+  padding-left: 4px;
+  margin-top: 10px;
+}
+
+.banner-actions-container {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
+.banner-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  z-index: 2;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

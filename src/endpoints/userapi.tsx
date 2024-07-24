@@ -1,3 +1,4 @@
+import { UserForm, UserLoginContract } from "../interfaces/User";
 import { MessageStatus } from "../utils/messageStatusParser";
 
 const apiUrl = "http://localhost:5224";
@@ -5,13 +6,16 @@ export default apiUrl;
 
 // Promise<boolean | Record<string, unknown>>
 
-export const login = async (userCredentials: string, password: string) => {
+export const login = async (user: UserForm) => {
   const response = await fetch(`${apiUrl}/api/Auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ userCredentials, password }),
+    body: JSON.stringify({
+      userCredentials: user.username,
+      password: user.password,
+    } as UserLoginContract),
   });
 
   if (!response.ok) {
@@ -46,7 +50,7 @@ export const searchByUsernameOrEmail = async (
   );
 
   if (!response.ok) {
-    return false;
+    return new Promise((resolve) => resolve(false));
   }
 
   return response.json();
@@ -67,6 +71,21 @@ export const sendChatRequest = async (senderId: number, receiverId: number) => {
 
   if (!response.ok) {
     return false;
+  }
+
+  return response.json();
+};
+
+export const checkIfUserIsAlreadyRequested = async (
+  senderId: number,
+  receiverId: number
+) => {
+  const response = await fetch(
+    `${apiUrl}/api/contact/check-request/${senderId}/${receiverId}`
+  );
+
+  if (!response.ok) {
+    return new Promise((resolve) => resolve(false));
   }
 
   return response.json();

@@ -1,0 +1,47 @@
+.request-page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 1 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.request-page .request-results-c {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+  padding-bottom: 0;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.request-page ul {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.request-page li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

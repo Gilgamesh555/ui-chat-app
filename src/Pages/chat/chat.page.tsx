@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ChatPage.css";
+import "./chat.style.css";
 
 interface ChatPageProps {
   isOpen: boolean;

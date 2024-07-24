@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./RequestUserCard.css";
-import { MessageStatus } from "../utils/messageStatusParser";
+import "./request-user-card.style.css";
+import { MessageStatus } from "../../utils/messageStatusParser";
 import {
   createContacts,
   getContactById,
   updateContactStatus,
-} from "../endpoints/userapi";
+} from "../../Endpoints/userapi";
+import Button from "../button/button";
 
 interface RequestUserCardProps {
   name: string;
@@ -13,38 +14,48 @@ interface RequestUserCardProps {
   userReceiverId: number;
 }
 
-const RequestUserCard: React.FC<RequestUserCardProps> = ({
-  name,
-  userSenderId,
-  userReceiverId,
-}) => {
+const RequestUserCard: React.FC<RequestUserCardProps> = (
+  props: RequestUserCardProps
+) => {
   const [requestContent, setRequestContent] = useState<JSX.Element | null>(
     <>
-      <button onClick={() => handleAcceptRequest(userSenderId, userReceiverId)}>
+      <Button
+        onClick={() =>
+          handleAcceptRequest(props.userSenderId, props.userReceiverId)
+        }
+        type="primary"
+      >
         Accept
-      </button>
-      <button onClick={() => handleRejectRequest(userSenderId, userReceiverId)}>
+      </Button>
+      <Button
+        onClick={() =>
+          handleRejectRequest(props.userSenderId, props.userReceiverId)
+        }
+        type="danger"
+      >
         Reject
-      </button>
+      </Button>
     </>
   );
 
   useEffect(() => {
     // Get contact status from the server
-    getContactById(userSenderId, userReceiverId).then((response) => {
-      if (response === false) {
-        return;
-      }
+    getContactById(props.userSenderId, props.userReceiverId).then(
+      (response) => {
+        if (response === false) {
+          return;
+        }
 
-      if (response.status === MessageStatus.Accepted) {
-        setRequestContent(<span>Request Accepted</span>);
-      } else if (response.status === MessageStatus.Rejected) {
-        setRequestContent(<span>Request Rejected</span>);
-      } else if (response.status === MessageStatus.Blocked) {
-        setRequestContent(<span>Request Blocked</span>);
+        if (response.status === MessageStatus.Accepted) {
+          setRequestContent(<span>Request Accepted</span>);
+        } else if (response.status === MessageStatus.Rejected) {
+          setRequestContent(<span>Request Rejected</span>);
+        } else if (response.status === MessageStatus.Blocked) {
+          setRequestContent(<span>Request Blocked</span>);
+        }
       }
-    });
-  }, [userSenderId, userReceiverId]);
+    );
+  }, [props.userSenderId, props.userReceiverId]);
 
   const handleAcceptRequest = (
     userSenderId: number,
@@ -92,8 +103,11 @@ const RequestUserCard: React.FC<RequestUserCardProps> = ({
 
   return (
     <div className="request-user-card">
-      <h3 className="name">{name}</h3>
-      <div className="buttons">{requestContent}</div>
+      <div className="request-user-card-c">
+        {/* <div className="avatar"></div> */}
+        <h3 className="name">{props.name}</h3>
+        <div className="buttons">{requestContent}</div>
+      </div>
     </div>
   );
 };
