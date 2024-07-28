@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import RouterAppProvider from "./router/router";
-import { SessionProvider } from "./contexts/SessionContext";
-import { SearchProvider } from "./contexts/SearchContext";
-import { PagesProvider } from "./contexts/PagesContext";
-import { ChatProvider } from "./contexts/ChatContext";
+import { SessionProvider } from "./contexts/sessionContext";
+import { SearchProvider } from "./contexts/searchContext";
+import { PagesProvider } from "./contexts/pagesContext";
+import { ChatProvider } from "./contexts/chatContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

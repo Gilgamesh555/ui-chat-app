@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { searchByUsernameOrEmail } from "../../endpoints/userapi";
-import { useSession } from "../../contexts/SessionContext";
-import { UserSearch, useSearchDispatch } from "../../contexts/SearchContext";
+import { useSession } from "../../contexts/sessionContext";
+import { UserSearch, useSearchDispatch } from "../../contexts/searchContext";
 import "./search.style.css";
-import { Pages, usePagesDispatch } from "../../contexts/PagesContext";
+import { Pages, usePagesDispatch } from "../../contexts/pagesContext";
 import SearchPage from "../../pages/search/search.page";
 
 export default function Search() {

@@ -3,7 +3,7 @@ import "./home.style.css";
 import NavBar from "../../components/nav-bar/navbar";
 import FriendsHeader from "../../components/friends-header/friends-header";
 import ChatSection from "../chat-section/chat-section";
-import { useChat } from "../../contexts/ChatContext";
+import { useChat } from "../../contexts/chatContext";
 
 const HomePage: React.FC = () => {
   const chat = useChat();

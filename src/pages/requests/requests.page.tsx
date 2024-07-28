@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RequestUserCard from "../../components/request-user-card/request-user-card";
-import { useSession } from "../../contexts/SessionContext";
+import { useSession } from "../../contexts/sessionContext";
 import "./requests.style.css";
 import { getChatRequests } from "../../endpoints/userapi";
 

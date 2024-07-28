@@ -1,4 +1,4 @@
-import { useSession } from "../../contexts/SessionContext";
+import { useSession } from "../../contexts/sessionContext";
 import { Navigate } from "react-router-dom";
 import { validateToken } from "../../endpoints/userapi";
 import { useEffect, useState } from "react";

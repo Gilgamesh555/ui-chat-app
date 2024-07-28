@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useSessionDispatch } from "../../contexts/SessionContext";
+import { useSessionDispatch } from "../../contexts/sessionContext";
 import "./navbar.style.css";
-import { useSearchDispatch } from "../../contexts/SearchContext";
-import { Pages, usePagesDispatch } from "../../contexts/PagesContext";
+import { useSearchDispatch } from "../../contexts/searchContext";
+import { Pages, usePagesDispatch } from "../../contexts/pagesContext";
 
 export default function NavBar(): JSX.Element {
   const userDispatch = useSessionDispatch();

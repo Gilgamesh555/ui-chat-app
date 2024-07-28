@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useSession } from "../../contexts/SessionContext";
+import { useSession } from "../../contexts/sessionContext";
 import { ContactFriend } from "../../interfaces/user";
 import { getAllWithAcceptedStatus } from "../../endpoints/userapi";
 import UserCard from "../../components/user-card/user-card";
 import "./friends.style.css";
-import { useChatDispatch } from "../../contexts/ChatContext";
+import { useChatDispatch } from "../../contexts/chatContext";
 
 export default function FriendsPage(): JSX.Element {
   const user = useSession();
