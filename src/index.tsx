@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import RouterAppProvider from "./router/Router";
+import RouterAppProvider from "./router/router";
 import { SessionProvider } from "./contexts/sessionContext";
 import { SearchProvider } from "./contexts/searchContext";
 import { PagesProvider } from "./contexts/pagesContext";
