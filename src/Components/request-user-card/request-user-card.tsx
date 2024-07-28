@@ -5,7 +5,7 @@ import {
   createContacts,
   getContactById,
   updateContactStatus,
-} from "../../Endpoints/userapi";
+} from "../../endpoints/userapi";
 import Button from "../button/button";
 
 interface RequestUserCardProps {

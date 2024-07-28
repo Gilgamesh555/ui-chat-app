@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { searchByUsernameOrEmail } from "../../Endpoints/userapi";
-import { useSession } from "../../Contexts/SessionContext";
-import { UserSearch, useSearchDispatch } from "../../Contexts/SearchContext";
+import { searchByUsernameOrEmail } from "../../endpoints/userapi";
+import { useSession } from "../../contexts/SessionContext";
+import { UserSearch, useSearchDispatch } from "../../contexts/SearchContext";
 import "./search.style.css";
-import { Pages, usePagesDispatch } from "../../Contexts/PagesContext";
-import SearchPage from "../../Pages/search/search.page";
+import { Pages, usePagesDispatch } from "../../contexts/PagesContext";
+import SearchPage from "../../pages/search/search.page";
 
 export default function Search() {
   const userData = useSession();

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import RequestUserCard from "../../Components/request-user-card/request-user-card";
-import { useSession } from "../../Contexts/SessionContext";
+import RequestUserCard from "../../components/request-user-card/request-user-card";
+import { useSession } from "../../contexts/SessionContext";
 import "./requests.style.css";
-import { getChatRequests } from "../../Endpoints/userapi";
+import { getChatRequests } from "../../endpoints/userapi";
 
 export interface UserRequest {
   id: number;

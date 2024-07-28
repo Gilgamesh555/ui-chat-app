@@ -1,6 +1,6 @@
-import { useSession } from "../../Contexts/SessionContext";
+import { useSession } from "../../contexts/SessionContext";
 import { Navigate } from "react-router-dom";
-import { validateToken } from "../../Endpoints/userapi";
+import { validateToken } from "../../endpoints/userapi";
 import { useEffect, useState } from "react";
 
 export default function AuthUser({

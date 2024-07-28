@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import RouterAppProvider from "./Router/Router";
-import { SessionProvider } from "./Contexts/SessionContext";
-import { SearchProvider } from "./Contexts/SearchContext";
-import { PagesProvider } from "./Contexts/PagesContext";
-import { ChatProvider } from "./Contexts/ChatContext";
+import RouterAppProvider from "./router/Router";
+import { SessionProvider } from "./contexts/SessionContext";
+import { SearchProvider } from "./contexts/SearchContext";
+import { PagesProvider } from "./contexts/PagesContext";
+import { ChatProvider } from "./contexts/ChatContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

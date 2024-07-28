@@ -1,9 +1,9 @@
 import React from "react";
 import "./home.style.css";
-import NavBar from "../../Components/nav-bar/navbar";
-import FriendsHeader from "../../Components/friends-header/friends-header";
+import NavBar from "../../components/nav-bar/navbar";
+import FriendsHeader from "../../components/friends-header/friends-header";
 import ChatSection from "../chat-section/chat-section";
-import { useChat } from "../../Contexts/ChatContext";
+import { useChat } from "../../contexts/ChatContext";
 
 const HomePage: React.FC = () => {
   const chat = useChat();

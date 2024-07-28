@@ -1,11 +1,11 @@
 import Snackbar from "../snackbar/snackbar";
 import "./friends-header.style.css";
 import Search from "../search/search";
-import { Pages, usePages, usePagesDispatch } from "../../Contexts/PagesContext";
-import { useSearch } from "../../Contexts/SearchContext";
-import SearchPage from "../../Pages/search/search.page";
-import RequestPage from "../../Pages/requests/requests.page";
-import FriendsPage from "../../Pages/friends/friends.page";
+import { Pages, usePages, usePagesDispatch } from "../../contexts/PagesContext";
+import { useSearch } from "../../contexts/SearchContext";
+import SearchPage from "../../pages/search/search.page";
+import RequestPage from "../../pages/requests/requests.page";
+import FriendsPage from "../../pages/friends/friends.page";
 
 export default function FriendsHeader(): JSX.Element {
   const page = usePages();

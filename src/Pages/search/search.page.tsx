@@ -1,6 +1,6 @@
-import SearchUserCard from "../../Components/search-user-card/search-user-card";
-import { UserSearch } from "../../Contexts/SearchContext";
-import { useSession } from "../../Contexts/SessionContext";
+import SearchUserCard from "../../components/search-user-card/search-user-card";
+import { UserSearch } from "../../contexts/SearchContext";
+import { useSession } from "../../contexts/SessionContext";
 import "./search.style.css";
 
 interface SearchPageProps {

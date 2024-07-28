@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./chat-section.style.css";
-import { getAllMessagesFromAChat, sendMessage } from "../../Endpoints/chatapi";
+import { getAllMessagesFromAChat, sendMessage } from "../../endpoints/chatapi";
 
 interface ChatSectionProps {
   fullName: string;

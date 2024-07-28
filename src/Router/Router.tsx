@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthUser from "../Components/auth/auth.page";
-import HomePage from "../Pages/home/home.page";
-import LoginPage from "../Pages/login/login.page";
-import LogOutUser from "../Components/auth/logout.page";
-import NavBar from "../Components/nav-bar/navbar";
+import AuthUser from "../components/auth/auth.page";
+import HomePage from "../pages/home/home.page";
+import LoginPage from "../pages/login/login.page";
+import LogOutUser from "../components/auth/logout.page";
+import NavBar from "../components/nav-bar/navbar";
 
 export const router = createBrowserRouter([
   {

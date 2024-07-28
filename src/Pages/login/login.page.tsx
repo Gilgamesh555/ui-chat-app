@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { login } from "../../Endpoints/userapi";
+import { login } from "../../endpoints/userapi";
 import "./login.style.css";
-import { useSession, useSessionDispatch } from "../../Contexts/SessionContext";
+import { useSession, useSessionDispatch } from "../../contexts/SessionContext";
 import { UserForm } from "../../interfaces/User";
 import { useNavigate } from "react-router-dom";
 

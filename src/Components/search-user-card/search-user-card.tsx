@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   checkIfUserIsAlreadyRequested,
   sendChatRequest,
-} from "../../Endpoints/userapi";
+} from "../../endpoints/userapi";
 import Button from "../button/button";
 import "./search-user-card.style.css";
 

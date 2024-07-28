@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSession } from "../../Contexts/SessionContext";
-import { validateToken } from "../../Endpoints/userapi";
+import { useSession } from "../../contexts/SessionContext";
+import { validateToken } from "../../endpoints/userapi";
 import { Navigate } from "react-router-dom";
 
 export default function LogOutUser({
