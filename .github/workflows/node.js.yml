@@ -19,7 +19,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Install Node.js
@@ -31,11 +31,40 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: List directory contents
-        run: ls -R src
-
-      #- name: Run tests
-      #  run: npm test
+      # - name: Run tests
+      #   run: npm test
 
       - name: Build
         run: npm run build --if-present
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build folder
+        run: npm run build --if-present
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: "./dist"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
