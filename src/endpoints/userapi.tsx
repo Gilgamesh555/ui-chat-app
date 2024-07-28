@@ -1,4 +1,4 @@
-import { UserForm, UserLoginContract } from "../interfaces/User";
+import { UserForm, UserLoginContract } from "../interfaces/user";
 import { MessageStatus } from "../utils/messageStatusParser";
 
 const apiUrl = "http://localhost:5224";

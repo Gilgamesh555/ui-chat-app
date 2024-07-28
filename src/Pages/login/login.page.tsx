@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { login } from "../../endpoints/userapi";
 import "./login.style.css";
 import { useSession, useSessionDispatch } from "../../contexts/SessionContext";
-import { UserForm } from "../../interfaces/User";
+import { UserForm } from "../../interfaces/user";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSession } from "../../contexts/SessionContext";
-import { ContactFriend } from "../../interfaces/User";
+import { ContactFriend } from "../../interfaces/user";
 import { getAllWithAcceptedStatus } from "../../endpoints/userapi";
 import UserCard from "../../components/user-card/user-card";
 import "./friends.style.css";
