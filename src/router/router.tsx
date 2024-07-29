@@ -1,11 +1,11 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import AuthUser from "../components/auth/auth.page";
 import HomePage from "../pages/home/home.page";
 import LoginPage from "../pages/login/login.page";
 import LogOutUser from "../components/auth/logout.page";
 import NavBar from "../components/nav-bar/navbar";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: (
