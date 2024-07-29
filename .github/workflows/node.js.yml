@@ -71,6 +71,9 @@ jobs:
       - name: Build folder
         run: npm run build --if-present
 
+      - name: Check build content
+        run: ls -l build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
