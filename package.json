@@ -2,7 +2,7 @@
   "name": "ui-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "ui-chat-app/",
+  "homepage": ".",
   "proxy": "http://localhost:5224",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
